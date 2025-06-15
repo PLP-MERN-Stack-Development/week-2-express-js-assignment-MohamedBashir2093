@@ -1,63 +1,115 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19779412&assignment_repo_type=AssignmentRepo)
-# Express.js RESTful API Assignment
 
-This assignment focuses on building a RESTful API using Express.js, implementing proper routing, middleware, and error handling.
+# 🛒 Product API
 
-## Assignment Overview
+A RESTful API built with Express.js to manage products, with features like filtering, search, statistics, authentication, validation, and error handling.
 
-You will:
-1. Set up an Express.js server
-2. Create RESTful API routes for a product resource
-3. Implement custom middleware for logging, authentication, and validation
-4. Add comprehensive error handling
-5. Develop advanced features like filtering, pagination, and search
+## 📦 Features
 
-## Getting Started
+- Basic CRUD operations for products
+- Middleware for logging, authentication, and validation
+- Custom error handling with appropriate HTTP status codes
+- Support for filtering, pagination, and searching
+- Product statistics by category
+- API key-based protection for POST, PUT, and DELETE routes
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Run the server:
-   ```
-   npm start
-   ```
+## 🚀 Getting Started
 
-## Files Included
+### Prerequisites
 
-- `Week2-Assignment.md`: Detailed assignment instructions
-- `server.js`: Starter Express.js server file
-- `.env.example`: Example environment variables file
+- Node.js (v18+ recommended)
+- npm
 
-## Requirements
+### Installation
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Postman, Insomnia, or curl for API testing
 
-## API Endpoints
+git clone https://github.com/PLP-MERN-Stack-Development/week-2-express-js-assignment-MohamedBashir2093.git   
+cd week-2-express-js-assignment-MohamedBashir2093
+npm install
 
-The API will have the following endpoints:
 
-- `GET /api/products`: Get all products
-- `GET /api/products/:id`: Get a specific product
-- `POST /api/products`: Create a new product
-- `PUT /api/products/:id`: Update a product
-- `DELETE /api/products/:id`: Delete a product
+### Environment Variables
 
-## Submission
+Create a `.env` file at the root of the project:
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
 
-1. Complete all the required API endpoints
-2. Implement the middleware and error handling
-3. Document your API in the README.md
-4. Include examples of requests and responses
+PORT=3000
+API_KEY=your_api_key_here
 
-## Resources
 
-- [Express.js Documentation](https://expressjs.com/)
-- [RESTful API Design Best Practices](https://restfulapi.net/)
-- [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) 
+
+
+### Start the Server
+
+node server.js
+
+
+Server runs at: `http://localhost:3000`
+
+## 🛠️ API Endpoints
+
+All routes are prefixed with `/api/products`
+
+| Method | Route                         | Description               | Protected |
+| ------ | ----------------------------- | ------------------------- | --------- |
+| GET    | `/`                           | Hello World message       | ❌         |
+| GET    | `/api/products`               | List all products         | ❌         |
+| GET    | `/api/products/:id`           | Get product by ID         | ❌         |
+| POST   | `/api/products`               | Create a new product      | ✅         |
+| PUT    | `/api/products/:id`           | Update product            | ✅         |
+| DELETE | `/api/products/:id`           | Delete product            | ✅         |
+| GET    | `/api/products/search?q=term` | Search by product name    | ❌         |
+| GET    | `/api/products/stats`         | Product count by category | ❌         |
+
+> ✅ Requires `x-api-key` header (value: `your_api_key_here` by default) 
+
+## 🧪 Example JSON for POST/PUT
+
+  json
+{
+  "name": "Tablet",
+  "description": "Android tablet 10 inch",
+  "price": 199.99,
+  "category": "electronics",
+  "inStock": true
+}
+
+
+## 📁 Project Structure
+
+
+.
+├── data/
+│   └── products.js
+├── errors/
+│   ├── NotFoundError.js
+│   └── ValidationError.js
+├── middleware/
+│   ├── auth.js
+│   ├── logger.js
+│   └── validateProduct.js
+├── routes/
+│   └── products.js
+├── .env
+├── .gitignore
+├── server.js
+└── README.md
+
+ ## ✅ Status Codes Used
+
+| Code | Meaning               |
+| ---- | --------------------- |
+| 200  | OK                    |
+| 201  | Created               |
+| 400  | Bad Request           |
+| 401  | Unauthorized          |
+| 404  | Not Found             |
+| 500  | Internal Server Error |
+
+
+
+
+## 📄 License
+
+MIT
+
+

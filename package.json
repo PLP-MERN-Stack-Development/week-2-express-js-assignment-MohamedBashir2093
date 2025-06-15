@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "nodemon abdi.js"
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "body-parser": "^2.2.0",
