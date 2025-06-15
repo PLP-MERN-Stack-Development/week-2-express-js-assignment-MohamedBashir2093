@@ -18,6 +18,7 @@ app.use('/api/products', productsRoutes);
 app.get('/', (req, res) => res.send("Hello World"));
 
 
+
 // Global error handler
 app.use((err, req, res, next) => {
   console.error(`[ERROR] ${err.name}: ${err.message}`);
